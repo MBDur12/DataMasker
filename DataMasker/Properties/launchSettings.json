@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DataMasker": {
+      "commandName": "Project",
+      "commandLineArgs": "JSONFILE RULEFILE"
+    }
+  }
+}
