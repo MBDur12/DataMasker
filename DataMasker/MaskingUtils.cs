@@ -36,11 +36,14 @@ namespace DataMasker
 
                 // Build Rule object from parsed strings
                 Rule rule = new Rule();
+                Regex whitespace = new Regex(@"\s");
                 foreach (string ruleStr in ruleStrs)
                 {
-                    int colonInd = ruleStr.IndexOf(':');
-                    string key = ruleStr.Substring(0, colonInd);
-                    string value = ruleStr.Substring(colonInd + 1);
+                    // Strip whitespace from string
+                    string stripStr = whitespace.Replace(ruleStr, string.Empty);
+                    int colonInd = stripStr.IndexOf(':');
+                    string key = stripStr.Substring(0, colonInd);
+                    string value = stripStr.Substring(colonInd + 1);
 
                     if (key == "k")
                     {
