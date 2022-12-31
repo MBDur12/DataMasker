@@ -2,7 +2,7 @@
   "profiles": {
     "DataMasker": {
       "commandName": "Project",
-      "commandLineArgs": "JSONFILE RULEFILE"
+      "commandLineArgs": "\"C:\\Users\\mbcs1\\Downloads\\Redgate_Intern_Assessment\\Redgate Intern Assessment\\TestData\\people.json\" \"C:\\Users\\mbcs1\\Downloads\\Redgate_Intern_Assessment\\Redgate Intern Assessment\\TestData\\b.rules.json\" "
     }
   }
 }

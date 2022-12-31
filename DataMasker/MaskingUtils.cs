@@ -58,7 +58,7 @@ namespace DataMasker
             
         }
 
-        // Returns a JArray from the data file
+        // Return a JArray from the data file
         public static JArray LoadData(string dataPath)
         {
             string json = File.ReadAllText(dataPath);
@@ -78,6 +78,50 @@ namespace DataMasker
                 return new JArray();
             }
 
+        }
+
+        public static void MaskData(JArray dataArray, Rule rule)
+        {
+            // Iterate over each JObject in the dataArray
+            foreach (JObject item in dataArray)
+            {
+                // Iterate over each JProperty in the JObject
+                foreach (JProperty prop in item.Properties())
+                {
+                    // Get the value of the JProperty as a string
+                    string value = prop.Value.ToString();
+
+                    // Check is the key of the JProperty has a matching rule 
+                    Regex? keyPattern = rule.GetMatchingPattern(prop.Name, "k");
+                    if (keyPattern != null)
+                    {
+                        // Mask the value if there is a matching key pattern
+                        string maskedStr = rule.GetMaskedKeyResult(value);
+                        prop.Value = maskedStr;
+                    }
+                    else
+                    {
+                        // If the key doesn't match a key pattern, check if the value matches a value pattern
+                        Regex? valPattern = rule.GetMatchingPattern(value, "v");
+                        if (valPattern != null)
+                        {
+                            // If there is a match, get the masked version of the value
+                            string maskedStr = rule.GetMaskedValueResult(value, valPattern);
+                            prop.Value = maskedStr;
+                        }
+                    }
+                    
+                    
+
+                }
+            }
+        }
+
+        public static void WriteMaskedDataToFile(JArray dataArray, string filePath)
+        {
+            string serializedData = JsonConvert.SerializeObject(dataArray);
+            File.WriteAllText(filePath, serializedData);
+            Console.WriteLine($"Produced new masked file: {filePath}");
         }
 
     }
