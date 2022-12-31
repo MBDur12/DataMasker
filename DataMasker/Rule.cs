@@ -54,7 +54,9 @@ namespace DataMasker
 
         public string GetMaskedValueResult(string str, Regex pattern)
         {
-            return pattern.Replace(str, m => new string('*', m.Length));
+            Match match = pattern.Match(str);
+            string maskedStr = Regex.Replace(str, match.Value, new string('*', match.Value.Length));
+            return maskedStr;
         }
     }
 }

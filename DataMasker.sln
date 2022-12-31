@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMasker", "DataMasker\DataMasker.csproj", "{1E1D3FA7-28B7-4A5B-A0F1-6B15153D0365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataMasker", "DataMasker\DataMasker.csproj", "{1E1D3FA7-28B7-4A5B-A0F1-6B15153D0365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMaskerTests", "DataMaskerTests\DataMaskerTests.csproj", "{D5230466-7BFB-4542-B608-9AD8F82C13B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1E1D3FA7-28B7-4A5B-A0F1-6B15153D0365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E1D3FA7-28B7-4A5B-A0F1-6B15153D0365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E1D3FA7-28B7-4A5B-A0F1-6B15153D0365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5230466-7BFB-4542-B608-9AD8F82C13B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5230466-7BFB-4542-B608-9AD8F82C13B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5230466-7BFB-4542-B608-9AD8F82C13B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5230466-7BFB-4542-B608-9AD8F82C13B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,7 +13,7 @@ namespace DataMasker
 {
     public static class MaskingUtils
     {
-        // Reads in rules JSON file and returns a dictionary
+        // Reads in rules JSON file and returns a Rule object
         public static Rule MakeRule(string rulesPath)
         {
             string json = File.ReadAllText(rulesPath);
