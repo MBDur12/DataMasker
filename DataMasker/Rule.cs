@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +11,50 @@ namespace DataMasker
     // Stores Regex patterns read in from a rules JSON file
     public class Rule
     {
-        public HashSet<Regex> KeyPatterns { get; set; }
+        public List<Regex> KeyPatterns { get; set; }
 
-        public HashSet<Regex> ValuePatterns { get; set; }
+        public List<Regex> ValuePatterns { get; set; }
 
         public Rule()
         {
-            KeyPatterns = new HashSet<Regex>();
-            ValuePatterns = new HashSet<Regex>();
+            KeyPatterns = new List<Regex>();
+            ValuePatterns = new List<Regex>();
         }
 
+        public Regex? GetMatchingPattern(string str, string type)
+        {
+            List<Regex> patterns;
+            if (type == "k")
+            {
+                patterns = KeyPatterns;
+            }
+            else
+            {
+                patterns = ValuePatterns;
+            }
+
+            foreach(Regex regex in patterns)
+            {
+                if (regex.IsMatch(str))
+                {
+                    return regex;
+                }
+            }
+            return null;
+        }
+        public string GetMaskedKeyResult(string str)
+        {
+            string replacedString = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                replacedString += "*";
+            }
+            return replacedString;
+        }
+
+        public string GetMaskedValueResult(string str, Regex pattern)
+        {
+            return pattern.Replace(str, m => new string('*', m.Length));
+        }
     }
 }
