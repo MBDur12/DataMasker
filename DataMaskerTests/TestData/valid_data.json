@@ -1,0 +1,14 @@
+[
+  {
+    "nut": "peanut",
+    "fruit": "apple",
+    "vegetable": "carrot",
+    "animal": "dog",
+    "mineral": "copper"
+  },
+
+  {
+    "nuts": "brazil nut, peanut",
+    "fruits": "apple, banana"
+  }
+]

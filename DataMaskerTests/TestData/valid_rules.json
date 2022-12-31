@@ -1,0 +1,12 @@
+[
+  "k:^nut$",
+  "v:nut",
+  "k:^fruit$",
+  "v:fruit",
+  "k:^vegetable$",
+  "v:vegetable",
+  "k:^animal$",
+  "v:animal",
+  "k:^mineral$",
+  "v:mineral"
+]
